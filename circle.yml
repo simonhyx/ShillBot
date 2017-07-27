@@ -1,1 +1,10 @@
+machine:                                                                                                                                                                 
+  pre:                                                                                                                                                                   
+    - cd /opt/circleci/.pyenv; git pull                                                                                                                                  
+  python:                                                                                                                                                                
+    version: 3.6.0
 
+
+test:
+  override:
+    - python -m unittest discover
