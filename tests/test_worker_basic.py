@@ -96,6 +96,16 @@ class TestWorkerBasic(unittest.TestCase):
         len_after = len(worker.crawled)
         self.assertNotEqual(len_after, 10)
         
+        
+    def test_worker_init(self):
+        worker = BasicUserParseWorker("https://www.reddit.com/user/Chrikelnel")
+        worker1 = BasicUserParseWorker("https://www.reddit.com/user/Chrikelnel1")
+        worker2 = BasicUserParseWorker("https://www.reddit.com/user/Chrikelnel2")
+        link1 = worker.to_crawl[0]
+        link = "https://www.reddit.com/user/Chrikelnel"
+        self.assertEqual(link, link1)
+        self.assertNotEqual(worker.to_crawl[0], worker1.to_crawl[0])
+        self.assertNotEqual(worker1.to_crawl[0], worker2.to_crawl[0])
 
 
 
