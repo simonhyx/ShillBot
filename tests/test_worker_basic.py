@@ -99,8 +99,8 @@ class TestWorkerBasic(unittest.TestCase):
         
     def test_worker_init(self):
         worker = BasicUserParseWorker("https://www.reddit.com/user/Chrikelnel")
-        worker1 = BasicUserParseWorker("https://www.reddit.com/user/Chrikelnel1")
-        worker2 = BasicUserParseWorker("https://www.reddit.com/user/Chrikelnel2")
+        worker1 = BasicUserParseWorker("https://www.afd.com/")
+        worker2 = BasicUserParseWorker("https://www.sdf.com/user/Chrikelnel2")
         link1 = worker.to_crawl[0]
         link = "https://www.reddit.com/user/Chrikelnel"
         self.assertEqual(link, link1)
