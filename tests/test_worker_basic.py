@@ -75,13 +75,10 @@ class TestWorkerBasic(unittest.TestCase):
         
     def test_worker_init(self):
         abc = BasicUserParseWorker("https://www.reddit.com/user/Chrikelnel")
-        bcd = BasicUserParseWorker("https://www.afd.com/")
-        sdf = BasicUserParseWorker("https://www.sdf.com/user/Chrikelnel2")
         link1 = abc.to_crawl[0]
         link = "https://www.reddit.com/user/Chrikelnel"
         self.assertEqual(link, link1)
-        self.assertNotEqual(abc.to_crawl[0], sdf.to_crawl[6])
-        self.assertNotEqual(bcd.to_crawl[0], sdf.to_crawl[6])
+
 
     def test_worker_max_links(self):
 
