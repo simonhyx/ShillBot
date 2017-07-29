@@ -73,6 +73,7 @@ class TestWorkerBasic(unittest.TestCase):
         
         
     def test_worker_run(self):
+        worker = BasicUserParseWorker("https://www.reddit.com/user/Chrikelnel")
         len_crawled = len(worker.crawled)
         worker.run()
         len_crawled_after = len(worker.crawled)
