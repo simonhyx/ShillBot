@@ -80,7 +80,7 @@ class TestWorkerBasic(unittest.TestCase):
         link1 = abc.to_crawl[0]
         link = "https://www.reddit.com/user/Chrikelnel"
         self.assertEqual(link, link1)
-        self.assertNotEqual(abc.to_crawl[0], sdf.to_crawl[2])
+        self.assertNotEqual(abc.to_crawl[0], sdf.to_crawl[3])
         self.assertNotEqual(bcd.to_crawl[0], sdf.to_crawl[0])
 
     def test_worker_max_links(self):
