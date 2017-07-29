@@ -104,7 +104,7 @@ class TestWorkerBasic(unittest.TestCase):
         link1 = worker.to_crawl[0]
         link = "https://www.reddit.com/user/Chrikelnel"
         self.assertEqual(link, link1)
-        self.assertNotEqual(worker.to_crawl[0], worker2.to_crawl[0])
+        self.assertNotEqual(worker.to_crawl[0], worker2.to_crawl[1])
         self.assertNotEqual(worker1.to_crawl[0], worker2.to_crawl[0])
 
 
