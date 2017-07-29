@@ -71,6 +71,13 @@ class TestWorkerBasic(unittest.TestCase):
         
         self.assertEqual(len_initial,len_after)
         
+        
+    def test_worker_run(self):
+        len_crawled = len(worker.crawled)
+        worker.run()
+        len_crawled_after = len(worker.crawled)
+        self.assertNotEqual(len_crawled, len_crawled_after)
+        
 
 
 
