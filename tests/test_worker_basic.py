@@ -73,6 +73,16 @@ class TestWorkerBasic(unittest.TestCase):
         self.assertEqual(len_after_adding_duplicate, len_initial)
         
         
+    def test_worker_init(self):
+        abc = BasicUserParseWorker("https://www.reddit.com/user/Chrikelnel")
+        bcd = BasicUserParseWorker("https://www.afd.com/")
+        sdf = BasicUserParseWorker("https://www.sdf.com/user/Chrikelnel2")
+        link1 = abc.to_crawl[0]
+        link = "https://www.reddit.com/user/Chrikelnel"
+        self.assertEqual(link, link1)
+        self.assertNotEqual(abc.to_crawl[0], sdf.to_crawl[2])
+        self.assertNotEqual(bcd.to_crawl[0], sdf.to_crawl[0])
+
     def test_worker_max_links(self):
 
         worker = BasicUserParseWorker("https://www.reddit.com/user/Chrikelnel")
@@ -97,15 +107,6 @@ class TestWorkerBasic(unittest.TestCase):
         self.assertNotEqual(len_after, 10)
         
         
-    def test_worker_init(self):
-        worker = BasicUserParseWorker("https://www.reddit.com/user/Chrikelnel")
-        worker1 = BasicUserParseWorker("https://www.afd.com/")
-        worker2 = BasicUserParseWorker("https://www.sdf.com/user/Chrikelnel2")
-        link1 = worker.to_crawl[0]
-        link = "https://www.reddit.com/user/Chrikelnel"
-        self.assertEqual(link, link1)
-        self.assertNotEqual(worker.to_crawl[0], worker2.to_crawl[2])
-        self.assertNotEqual(worker1.to_crawl[0], worker2.to_crawl[0])
 
 
 
