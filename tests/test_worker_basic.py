@@ -4,6 +4,7 @@ import codecs
 import os
 
 from workers.basic_worker import BasicUserParseWorker
+from mothership.base import MothershipServer
 
 
 class TestWorkerBasic(unittest.TestCase):
@@ -82,7 +83,7 @@ class TestWorkerBasic(unittest.TestCase):
         
         worker.run()
         len_crawled_after = len(worker.crawled)
-        self.assertEqual(len_crawled, len_crawled_after)
+        self.assertNotEqual(len_crawled, len_crawled_after)
         
 
 
