@@ -63,13 +63,13 @@ class TestWorkerBasic(unittest.TestCase):
     def test_worker_duplicate_links(self):
         worker = BasicUserParseWorker("https://www.reddit.com/user/Chrikelnel")
         worker.crawled = []
-        
+        len_initial = len(worker.to_crawl)
         
         worker.crawled.append("https://www.reddit.com/user/Chrikelnel")
         worker.add_links(["https://www.reddit.com/user/Chrikelnel"])
         len_after_adding_duplicate = len(worker.to_crawl)
         
-        self.assertEqual(len_after_adding_duplicate, 0)
+        self.assertEqual(len_after_adding_duplicate, len_initial)
         
         
     def test_worker_run(self):
