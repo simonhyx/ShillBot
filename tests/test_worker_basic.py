@@ -73,16 +73,28 @@ class TestWorkerBasic(unittest.TestCase):
         self.assertEqual(len_after_adding_duplicate, len_initial)
         
         
-    def test_worker_run(self):
+    def test_worker_max_links(self):
 
         worker = BasicUserParseWorker("https://www.reddit.com/user/Chrikelnel")
-        len_crawled = len(worker.crawled)
+        
         worker.add_links(["https://www.reddit.com/user/Chrikelnel"])
-        
-        
-        worker.run()
-        len_crawled_after = len(worker.crawled)
-        self.assertNotEqual(len_crawled, len_crawled_after)
+        worker.add_links(["https://www.reddit.com/user/Chrikelnel1"])
+        worker.add_links(["https://www.reddit.com/user/Chrikelnel2"])
+        worker.add_links(["https://www.reddit.com/user/Chrikelnel3"])
+        worker.add_links(["https://www.reddit.com/user/Chrikelnel4"])
+        worker.add_links(["https://www.reddit.com/user/Chrikelnel5"])
+        worker.add_links(["https://www.reddit.com/user/Chrikelnel6"])
+        worker.add_links(["https://www.reddit.com/user/Chrikelnel7"])
+        worker.add_links(["https://www.reddit.com/user/Chrikelnel8"])
+        worker.add_links(["https://www.reddit.com/user/Chrikelnel9"])
+        worker.add_links(["https://www.reddit.com/user/Chrikelnel10"])
+        worker.add_links(["https://www.reddit.com/user/Chrikelnel11"])
+        worker.add_links(["https://www.reddit.com/user/Chrikelnel12"])
+        worker.add_links(["https://www.reddit.com/user/Chrikelnel13"])
+        worker.add_links(["https://www.reddit.com/user/Chrikelnel14"])
+        worker.add_links(["https://www.reddit.com/user/Chrikelnel15"])
+        len_after = len(worker.crawled)
+        self.assertNotEqual(len_after, 10)
         
 
 
