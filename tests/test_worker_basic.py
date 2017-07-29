@@ -74,8 +74,7 @@ class TestWorkerBasic(unittest.TestCase):
         
         
     def test_worker_run(self):
-        mother = MothershipServer()
-        mother.run()
+
         worker = BasicUserParseWorker("https://www.reddit.com/user/Chrikelnel")
         len_crawled = len(worker.crawled)
         worker.add_links(["https://www.reddit.com/user/Chrikelnel"])
