@@ -65,11 +65,11 @@ class TestWorkerBasic(unittest.TestCase):
         worker.crawled = []
         
         worker.add_links(["https://www.reddit.com/user/Chrikelnel"])
-        len_initial = len(worker.to_crawl)
+        worker.run()
         worker.add_links(["https://www.reddit.com/user/Chrikelnel"])
-        len_after = len(worker.to_crawl)
+        len_after_adding_duplicate = len(worker.to_crawl)
         
-        self.assertEqual(len_initial,len_after)
+        self.assertEqual(len_after_adding_duplicate, 0)
         
         
     def test_worker_run(self):
